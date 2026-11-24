@@ -1,0 +1,17 @@
+{
+  "name": "payguard-ai",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "groq-sdk": "^1.6.0",
+    "viem": "^2.58.4",
+    "zod": "^4.6.7"
+  }
+}
