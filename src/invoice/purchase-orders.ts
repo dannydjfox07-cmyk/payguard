@@ -12,7 +12,7 @@ export const purchaseOrders: PurchaseOrder[] = [
   {
     poNumber: "PO-2026-0042",
     supplier: "Acme Software Ltd",
-    approvedAmount: "250",
+    approvedAmount: "1.25",
     currency: "tUSD8",
     recipient: "0xf3f0F1d3a5A49425Fd5fb62ff7b2198e755dE806",
     description: "Software development services",

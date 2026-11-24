@@ -45,6 +45,7 @@ export type InvoiceStatus =
   | "received"
   | "needs_review"
   | "verified"
+  | "pending_approval"
   | "approved"
   | "paid"
   | "rejected";
@@ -98,14 +99,27 @@ export function updateInvoiceStatus(
     InvoiceStatus[]
   > = {
     received: ["needs_review", "verified", "rejected"],
+
     needs_review: ["verified", "rejected"],
-    verified: ["approved", "rejected"],
+
+    verified: ["approved", "pending_approval", "rejected"],
+
+    pending_approval: ["approved", "rejected"],
+
     approved: ["paid"],
+
     paid: [],
+
     rejected: [],
   };
 
   const allowed = allowedTransitions[invoice.status];
+  console.log("=== STATUS DEBUG ===");
+  console.log("Current status:", JSON.stringify(invoice.status));
+  console.log("New status:", JSON.stringify(newStatus));
+  console.log("Allowed transitions:", allowed);
+  console.log("Is transition allowed:", allowed.includes(newStatus));
+  console.log("====================");
 
   if (!allowed.includes(newStatus)) {
     throw new Error(
